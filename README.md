@@ -1,6 +1,6 @@
-# PROG 02: Represent!
+# PROG 02: Rep City
 
-Briefly describe your app here.
+Title inspired by Tyga. An app that makes up for your lack of political efficacy.
 
 ## Authors
 
