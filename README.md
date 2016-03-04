@@ -8,11 +8,16 @@ Rachel Lin ([rachellin@berkeley.edu](mailto:rachellin@berkeley.edu))
 
 ## Demo Video
 
-See [your demo video title here] (https://link_to_your_video)
+See [my video] (https://youtu.be/fz56SBFUzIg)
 
 ## Screenshots
 
-<img src="screenshots/main.png" height="400" alt="Screenshot"/>
+<img src="screenshots/screen1.png" height="400" alt="Screenshot"/>
+<img src="screenshots/screen2.png" height="400" alt="Screenshot"/>
+<img src="screenshots/screen3.png" height="400" alt="Screenshot"/>
+<img src="screenshots/screen4.png" height="400" alt="Screenshot"/>
+<img src="screenshots/screen5.png" height="400" alt="Screenshot"/>
+
 
 ## Acknowledgments
 
