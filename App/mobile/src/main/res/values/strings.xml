@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Rep City</string>
+    <string name="button_zipcode">Zip Code</string>
+    <string name="button_setlocation">Current Location</string>
+    <string name="title_activity_input_zipcode">Zip Code</string>
+    <string name="zip_code">Enter Zip Code</string>
+    <string name="where_live">Where do you live?</string>
+    <string name="next">Next</string>
+    <string name="title_activity_main_rep">Rep City</string>
+    <string name="more_info_text">More Info</string>
+    <string name="title_activity_detailed_rep">Your Representatives</string>
+</resources>
