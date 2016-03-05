@@ -23,7 +23,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent sendIntent = new Intent(getBaseContext(), PhoneToWatchService.class);
-                sendIntent.putExtra("CAT_NAME", "Fred");
+                sendIntent.putExtra("WHICH_REP", "reps2");
                 startService(sendIntent);
 
                 Intent intent = new Intent(getBaseContext(), MainRepActivity.class);

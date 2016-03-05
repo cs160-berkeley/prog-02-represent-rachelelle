@@ -19,7 +19,7 @@ import java.util.List;
  * Created by rachel on 3/1/16.
  */
 public class WatchToPhoneService extends Service implements GoogleApiClient.ConnectionCallbacks {
-
+    private String position;
     private GoogleApiClient mWatchApiClient;
     private List<Node> nodes = new ArrayList<>();
 
@@ -47,6 +47,15 @@ public class WatchToPhoneService extends Service implements GoogleApiClient.Conn
         return null;
     }
 
+    @Override
+    public int onStartCommand(Intent intent, int flags, int startId) {
+        // Which cat do we want to feed? Grab this info from INTENT
+        // which was passed over when we called startService
+        Bundle extras = intent.getExtras();
+        position = extras.getString("position");
+        return START_STICKY;
+    }
+
     @Override //alternate method to connecting: no longer create this in a new thread, but as a callback
     public void onConnected(Bundle bundle) {
         Log.d("T", "in onconnected");
@@ -58,11 +67,13 @@ public class WatchToPhoneService extends Service implements GoogleApiClient.Conn
                         Log.d("T", "found nodes");
                         //when we find a connected node, we populate the list declared above
                         //finally, we can send a message
-                        sendMessage("/send_toast", "Good job!");
+                        sendMessage("/send_toast", position);
                         Log.d("T", "sent");
                     }
                 });
     }
+
+
 
     @Override //we need this to implement GoogleApiClient.ConnectionsCallback
     public void onConnectionSuspended(int i) {}

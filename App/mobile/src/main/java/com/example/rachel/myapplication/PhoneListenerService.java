@@ -3,9 +3,8 @@ package com.example.rachel.myapplication;
 /**
  * Created by rachel on 3/1/16.
  */
-import android.content.Context;
+import android.content.Intent;
 import android.util.Log;
-import android.widget.Toast;
 
 import com.google.android.gms.wearable.MessageEvent;
 import com.google.android.gms.wearable.WearableListenerService;
@@ -28,12 +27,12 @@ public class PhoneListenerService extends WearableListenerService {
             // Value contains the String we sent over in WatchToPhoneService, "good job"
             String value = new String(messageEvent.getData(), StandardCharsets.UTF_8);
 
-            // Make a toast with the String
-            Context context = getApplicationContext();
-            int duration = Toast.LENGTH_SHORT;
-
-            Toast toast = Toast.makeText(context, value, duration);
-            toast.show();
+            Intent intent = new Intent(this, DetailedRep.class );
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            //you need to add this flag since you're starting a new activity from a service
+            intent.putExtra("position", value);
+            Log.d("T", "about to start watch MainActivity with CAT_NAME: Fred");
+            startActivity(intent);
 
             // so you may notice this crashes the phone because it's
             //''sending message to a Handler on a dead thread''... that's okay. but don't do this.

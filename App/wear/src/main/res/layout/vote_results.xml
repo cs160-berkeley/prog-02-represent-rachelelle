@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:baselineAligned="false">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="2012 Vote Results"/>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_margin="10dp">
+            <ImageView
+                android:src="@drawable/obama"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/obama_photo" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Obama"
+                android:textColor="@color/blue"
+                android:id="@+id/obama_name"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/obama_vote"
+                android:text="99%"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_margin="0dp"
+            android:gravity="center">
+
+            <ImageView
+                android:src="@drawable/romney"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/romney_photo" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Romney"
+                android:textColor="@color/red"
+                android:id="@+id/romney_name"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/romney_vote"
+                android:text="1%"/>
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+</LinearLayout>
