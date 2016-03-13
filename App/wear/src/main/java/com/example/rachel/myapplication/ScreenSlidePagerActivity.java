@@ -11,6 +11,7 @@ import android.support.v4.view.ViewPager;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 import java.util.HashMap;
 
@@ -30,9 +31,13 @@ public class ScreenSlidePagerActivity extends FragmentActivity {
     /**
      * The pager adapter, which provides the pages to the view pager widget.
      */
+    private String getName;
+    private String getPosition;
+    private String getParty;
     private PagerAdapter mPagerAdapter;
     private HashMap<Integer, String> Name;
     private HashMap<Integer, String> Party;
+    private HashMap<Integer, String> Position;
     private HashMap<String, String> VoteResults;
 
     //    private BoxInsetLayout mContainerView;
@@ -56,6 +61,7 @@ public class ScreenSlidePagerActivity extends FragmentActivity {
 
         Name = new HashMap<>();
         Party = new HashMap<>();
+        Position = new HashMap<>();
         VoteResults = new HashMap<>();
 
         String name = getIntent().getExtras().getString("zipcode");
@@ -69,6 +75,9 @@ public class ScreenSlidePagerActivity extends FragmentActivity {
             Party.put(0, "Democrat");
             Party.put(1, "Democrat");
             Party.put(2, "Democrat");
+            Position.put(0, "Representative");
+            Position.put(1, "Senator");
+            Position.put(2, "Senator");
             VoteResults.put("Obama", "59%");
             VoteResults.put("Romney", "38%");
         } else {
@@ -78,6 +87,9 @@ public class ScreenSlidePagerActivity extends FragmentActivity {
             Party.put(0, "Democrat");
             Party.put(1, "Republican");
             Party.put(2, "Republican");
+            Position.put(0, "Representative");
+            Position.put(1, "Senator");
+            Position.put(2, "Senator");
             VoteResults.put("Obama", "22%");
             VoteResults.put("Romney","78%");
         }
@@ -110,7 +122,8 @@ public class ScreenSlidePagerActivity extends FragmentActivity {
                 Bundle bundle = new Bundle();
                 bundle.putString("Name", Name.get(position));
                 bundle.putString("Party", Party.get(position));
-                bundle.putString("Position", Integer.toString(position));
+                bundle.putString("Index", Integer.toString(position));
+                bundle.putString("Position", Position.get(position));
                 currentFragment = new ScreenSlidePageFragment();
                 currentFragment.setArguments(bundle);
             }
@@ -126,11 +139,19 @@ public class ScreenSlidePagerActivity extends FragmentActivity {
         }
 
     public void sendToMobile(View view) {
-            Button button = (Button)findViewById(R.id.sendToMobile);
-            Intent sendIntent = new Intent(getBaseContext(), WatchToPhoneService.class);
-            String position = (String) button.getTag();
-            sendIntent.putExtra("position", position);
-            startService(sendIntent);
+        Button button = (Button)findViewById(R.id.sendToMobile);
+        TextView name = (TextView)findViewById(R.id.rep_name);
+        TextView party = (TextView)findViewById(R.id.rep_party);
+        TextView position = (TextView)findViewById(R.id.rep_position);
+        Intent sendIntent = new Intent(getBaseContext(), WatchToPhoneService.class);
+        String index = (String) button.getTag();
+        getPosition = position.getText().toString();
+        getName = name.getText().toString();
+        getParty = party.getText().toString();
+        sendIntent.putExtra("repName", getName);
+        sendIntent.putExtra("repPosition", getPosition);
+        sendIntent.putExtra("repParty", getParty);
+        startService(sendIntent);
         }
 
 }

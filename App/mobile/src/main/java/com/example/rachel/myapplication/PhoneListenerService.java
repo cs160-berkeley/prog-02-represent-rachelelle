@@ -18,6 +18,7 @@ public class PhoneListenerService extends WearableListenerService {
 
     //   WearableListenerServices don't need an iBinder or an onStartCommand: they just need an onMessageReceieved.
     private static final String TOAST = "/send_toast";
+    private String s[];
 
     @Override
     public void onMessageReceived(MessageEvent messageEvent) {
@@ -30,7 +31,10 @@ public class PhoneListenerService extends WearableListenerService {
             Intent intent = new Intent(this, DetailedRep.class );
             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             //you need to add this flag since you're starting a new activity from a service
-            intent.putExtra("position", value);
+            s = value.split("###");
+            intent.putExtra("repName", s[0]);
+            intent.putExtra("repPosition", s[1]);
+            intent.putExtra("repParty", s[2]);
             Log.d("T", "about to start watch MainActivity with CAT_NAME: Fred");
             startActivity(intent);
 

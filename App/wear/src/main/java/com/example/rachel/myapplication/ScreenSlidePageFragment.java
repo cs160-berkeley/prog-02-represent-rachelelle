@@ -20,7 +20,10 @@ public class ScreenSlidePageFragment extends Fragment {
                 R.layout.fragment_screen_slide_page, container, false);
 
         Button button = (Button) rootView.findViewById(R.id.sendToMobile);
-        button.setTag(getArguments().getString("Position"));
+        button.setTag(getArguments().getString("Index"));
+
+        TextView repPosition = (TextView) rootView.findViewById(R.id.rep_position);
+        repPosition.setText((getArguments().getString("Position")));
 
         TextView repName = (TextView) rootView.findViewById(R.id.rep_name);
         repName.setText((getArguments().getString("Name")));

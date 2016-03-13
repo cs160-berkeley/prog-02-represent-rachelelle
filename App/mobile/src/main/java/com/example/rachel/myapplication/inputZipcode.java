@@ -30,17 +30,17 @@ public class inputZipcode extends AppCompatActivity {
                 EditText zip_code = (EditText) findViewById(R.id.zip_code);
                 String zipcode = zip_code.getText().toString();
                 sendIntent.putExtra("zipcode",zipcode);
-                if (zipcode.equals("94704")){
-                    sendIntent.putExtra("WHICH_REP", "reps1");
-                } else {
-                    sendIntent.putExtra("WHICH_REP", "reps2");
-                }
+
+                RetrieveFeedTask retrievefeedtask = new RetrieveFeedTask(inputZipcode.this, zipcode, "","");
+                retrievefeedtask.callAPI();
+
+                sendIntent.putExtra("WHICH_REP", "reps1");
                 startService(sendIntent);
 
-                Intent intent = new Intent(getBaseContext(), MainRepActivity.class);
-                intent.putExtra("zipcode", zipcode);
+//                Intent intent = new Intent(getBaseContext(), MainRepActivity.class);
+//                intent.putExtra("zipcode", zipcode);
                 // Do something in response to button
-                startActivity(intent);
+//                startActivity(intent);
             }
         });
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);

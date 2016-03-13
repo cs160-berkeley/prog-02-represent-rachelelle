@@ -38,6 +38,10 @@
         </service>
 
         <activity android:name=".ScreenSlidePagerActivity"></activity>
+        <meta-data
+            android:name="io.fabric.ApiKey"
+            android:value="446ce9a906fca1816add4c89efb69d7debadebbc" />
     </application>
 
+    <uses-permission android:name="android.permission.INTERNET" />
 </manifest>

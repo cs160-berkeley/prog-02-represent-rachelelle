@@ -11,6 +11,7 @@
         android:textSize="14dip"
         android:paddingTop="10dp"
         android:paddingBottom="10dp"
+        android:textColor="@color/tw__composer_deep_gray"
         android:paddingLeft="?android:attr/expandableListPreferredChildPaddingLeft" />
 
 </LinearLayout>

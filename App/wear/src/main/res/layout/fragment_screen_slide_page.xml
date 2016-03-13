@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
@@ -18,15 +18,26 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text="@string/rep_position_text"
+        android:layout_above="@+id/rep_name"
+        android:textSize="12dp"
+        android:id="@+id/rep_position"
+        android:gravity="center" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:text="@string/rep_name_text"
+        android:textSize="15dp"
+        android:layout_below="@+id/rep_position"
         android:id="@+id/rep_name"
-        android:gravity="center"/>
+        android:gravity="center" />
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Democrat"
+        android:textSize="15dp"
         android:id="@+id/rep_party"
-        android:layout_below="@+id/rep_name"/>
+        android:layout_below="@+id/rep_name" />
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -35,5 +46,5 @@
         android:textColor="@color/dark_grey"
         android:layout_below="@id/rep_party"
         android:onClick="sendToMobile"
-        android:text="More Info"/>
-</RelativeLayout>
+        android:text="More Info" />
+</LinearLayout>

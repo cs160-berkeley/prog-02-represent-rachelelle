@@ -19,9 +19,12 @@ import java.util.List;
  * Created by rachel on 3/1/16.
  */
 public class WatchToPhoneService extends Service implements GoogleApiClient.ConnectionCallbacks {
-    private String position;
+    private String repName;
+    private String repPosition;
+    private String repParty;
     private GoogleApiClient mWatchApiClient;
     private List<Node> nodes = new ArrayList<>();
+    final Service _this = this;
 
     @Override
     public void onCreate() {
@@ -33,6 +36,7 @@ public class WatchToPhoneService extends Service implements GoogleApiClient.Conn
                 .build();
         //and actually connect it
         mWatchApiClient.connect();
+        Log.v("working","plz work");
     }
 
     @Override
@@ -52,13 +56,16 @@ public class WatchToPhoneService extends Service implements GoogleApiClient.Conn
         // Which cat do we want to feed? Grab this info from INTENT
         // which was passed over when we called startService
         Bundle extras = intent.getExtras();
-        position = extras.getString("position");
+        repName = extras.getString("repName");
+        repPosition = extras.getString("repPosition");
+        repParty = extras.getString("repParty");
+        // Send the message with the cat name
         return START_STICKY;
     }
 
     @Override //alternate method to connecting: no longer create this in a new thread, but as a callback
     public void onConnected(Bundle bundle) {
-        Log.d("T", "in onconnected");
+        Log.d("T", "in on connected");
         Wearable.NodeApi.getConnectedNodes(mWatchApiClient)
                 .setResultCallback(new ResultCallback<NodeApi.GetConnectedNodesResult>() {
                     @Override
@@ -67,8 +74,9 @@ public class WatchToPhoneService extends Service implements GoogleApiClient.Conn
                         Log.d("T", "found nodes");
                         //when we find a connected node, we populate the list declared above
                         //finally, we can send a message
-                        sendMessage("/send_toast", position);
+                        sendMessage("/send_toast", repName+"###"+repPosition+"###"+repParty);
                         Log.d("T", "sent");
+                        _this.stopSelf();
                     }
                 });
     }

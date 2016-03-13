@@ -2,7 +2,14 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.rachel.myapplication">
 
-    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <!--<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />-->
+    <!--<uses-permission android:name="android.permission.WAKE_LOCK" />-->
+
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <!-- Permission to write to external storage -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -17,6 +24,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <activity
             android:name=".inputZipcode"
             android:label="@string/title_activity_input_zipcode"
@@ -29,8 +37,8 @@
         <activity
             android:name=".MainRepActivity"
             android:label="@string/title_activity_main_rep"
-            android:parentActivityName=".inputZipcode"
             android:launchMode="singleTop"
+            android:parentActivityName=".inputZipcode"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -45,14 +53,47 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.rachel.myapplication.MainRepActivity" />
         </activity>
+
         <service android:name=".PhoneToWatchService" />
         <!-- Listeners are special services that need to be declared like below, as BIND_LISTENER -->
-        <service android:name=".PhoneListenerService"
+        <service
+            android:name=".PhoneListenerService"
             android:label="@string/app_name">
             <intent-filter>
                 <action android:name="com.google.android.gms.wearable.BIND_LISTENER" />
             </intent-filter>
         </service>
+
+        <activity
+            android:name=".CurrentLocation"
+            android:label="@string/title_activity_current_location"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.rachel.myapplication.MainActivity" />
+        </activity>
+
+        <activity
+            android:name=".RetrieveFeedTask"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.rachel.myapplication.MainActivity" />
+        </activity>
+
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyD0jLhMKi6Yjs2f5kTjBn1xvLEhYMuqRWc" />
+
+        <meta-data android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+
+        <meta-data
+            android:name="io.fabric.ApiKey"
+            android:value="446ce9a906fca1816add4c89efb69d7debadebbc" />
     </application>
 
 </manifest>
