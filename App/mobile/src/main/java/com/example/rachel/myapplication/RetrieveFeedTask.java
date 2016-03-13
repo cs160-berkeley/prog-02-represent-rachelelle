@@ -57,6 +57,8 @@ public class RetrieveFeedTask {
         new getAPI().execute();
     }
 
+
+
     private class getAPI extends AsyncTask<String, Void, String> {
 
         protected String doInBackground(String... params) {
@@ -99,6 +101,15 @@ public class RetrieveFeedTask {
             intent.putExtra("zipcode", zipcode_text);
             // Do something in response to button
             context.startActivity(intent);
+
+            Intent sendIntent = new Intent(context, PhoneToWatchService.class);
+            sendIntent.putExtra("zipcode",zipcode_text);
+            sendIntent.putExtra("first_name_array", first_name_array);
+            sendIntent.putExtra("last_name_array", last_name_array);
+            sendIntent.putExtra("party_array", party_array);
+            sendIntent.putExtra("title_array",title_array);
+            sendIntent.putExtra("WHICH_REP", "reps1");
+            context.startService(sendIntent);
         }
 
         public void parseProfilesJson(String the_json){

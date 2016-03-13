@@ -66,6 +66,7 @@
                 android:layout_height="wrap_content"
                 android:maxHeight="20px"
                 android:maxWidth="20px"
+                android:visibility="gone"
                 android:id="@+id/email_icon"/>
             <TextView
                 android:id="@+id/rep_email"

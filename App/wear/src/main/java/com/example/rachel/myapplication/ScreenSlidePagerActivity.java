@@ -66,33 +66,26 @@ public class ScreenSlidePagerActivity extends FragmentActivity {
 
         String name = getIntent().getExtras().getString("zipcode");
         zipcode = getIntent().getExtras().getString("zipcode");
+        String first_name_array = getIntent().getExtras().getString("first_name_array");
+        String last_name_array = getIntent().getExtras().getString("last_name_array");
+        String party_array = getIntent().getExtras().getString("party_array");
+        String title_array = getIntent().getExtras().getString("title_array");
+
+
 //            textView = (TextView) findViewById(R.id.rep_name);
 //            textView.setText(name);
-        if (zipcode.equals("94704")) {
+
             Name.put(0, "Barbara Lee");
             Name.put(1, "Barbara Boxer");
             Name.put(2, "Dianne Feinstein");
             Party.put(0, "Democrat");
             Party.put(1, "Democrat");
             Party.put(2, "Democrat");
-            Position.put(0, "Representative");
+            Position.put(0, "Rep");
             Position.put(1, "Senator");
             Position.put(2, "Senator");
             VoteResults.put("Obama", "59%");
             VoteResults.put("Romney", "38%");
-        } else {
-            Name.put(0, "Lloyd Doggett");
-            Name.put(1, "Ted Cruz");
-            Name.put(2,"John Cornyn");
-            Party.put(0, "Democrat");
-            Party.put(1, "Republican");
-            Party.put(2, "Republican");
-            Position.put(0, "Representative");
-            Position.put(1, "Senator");
-            Position.put(2, "Senator");
-            VoteResults.put("Obama", "22%");
-            VoteResults.put("Romney","78%");
-        }
 
     }
 

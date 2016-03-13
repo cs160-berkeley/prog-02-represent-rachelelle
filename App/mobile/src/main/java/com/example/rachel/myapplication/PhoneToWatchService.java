@@ -51,6 +51,10 @@ public class PhoneToWatchService extends Service {
         Bundle extras = intent.getExtras();
         Log.v("phonetowatch","please work");
         final String zipcode = extras.getString("zipcode");
+        final String first_name_array = extras.getString("first_name_array");
+        final String last_name_array = extras.getString("last_name_array");
+        final String party_array = extras.getString("party_array");
+        final String tile_array = extras.getString("title_array");
         final String whichrep = extras.getString("WHICH_REP");
 
         // Send the message with the cat name

@@ -25,10 +25,19 @@ public class WatchListenerService extends WearableListenerService {
 
         if( messageEvent.getPath().equalsIgnoreCase( FRED_FEED ) ) {
             String value = new String(messageEvent.getData(), StandardCharsets.UTF_8);
+            String first_name = new String(messageEvent.getData(), StandardCharsets.UTF_8);
+            String last_name = new String(messageEvent.getData(), StandardCharsets.UTF_8);
+            String party = new String(messageEvent.getData(), StandardCharsets.UTF_8);
+            String title = new String(messageEvent.getData(), StandardCharsets.UTF_8);
+
             Intent intent = new Intent(this, ScreenSlidePagerActivity.class );
             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             //you need to add this flag since you're starting a new activity from a service
             intent.putExtra("zipcode", value);
+//            intent.putExtra("first_name_array", first_name);
+//            intent.putExtra("last_name_array", last_name);
+//            intent.putExtra("party_array", party);
+//            intent.putExtra("title_array", value);
             Log.d("T", "about to start watch MainActivity with CAT_NAME: Fred");
             startActivity(intent);
         } else if (messageEvent.getPath().equalsIgnoreCase( LEXY_FEED )) {

@@ -8,7 +8,7 @@ Rachel Lin ([rachellin@berkeley.edu](mailto:rachellin@berkeley.edu))
 
 ## Demo Video
 
-See [my video] (https://youtu.be/fz56SBFUzIg)
+See [my video] (https://youtu.be/twGDzqXwNyk)
 
 ## Screenshots
 

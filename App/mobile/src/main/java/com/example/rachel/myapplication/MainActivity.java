@@ -60,6 +60,10 @@ public class MainActivity extends AppCompatActivity {
                     retrievefeedtask.callAPI();
 //                    RetrievePictures retrievepictures = new RetrievePictures();
 //                    retrievepictures.callAPI();
+                    Intent sendIntent = new Intent(getBaseContext(), PhoneToWatchService.class);
+                    sendIntent.putExtra("zipcode",zipcode);
+                    sendIntent.putExtra("WHICH_REP", "reps1");
+                    startService(sendIntent);
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
